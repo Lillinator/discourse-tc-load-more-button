@@ -8,7 +8,6 @@ export default apiInitializer('0.11.1', (api) => {
 
     @action
     onIntersection(entry) {
-      console.log("load more");
       if (!(this.args.enabled ?? true)) {
         return;
       }
