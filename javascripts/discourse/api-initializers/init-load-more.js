@@ -2,6 +2,11 @@ import { apiInitializer } from 'discourse/lib/api';
 import { action } from "@ember/object";
 
 export default apiInitializer('0.11.1', (api) => {
+  
+  const currentUser = api.getCurrentUser();
+    if (settings.toggle_off_for_anon && !currentUser) {
+      return; 
+    }
 
   api.modifyClass("component:load-more", {
     pluginId: "manual-load-more",
